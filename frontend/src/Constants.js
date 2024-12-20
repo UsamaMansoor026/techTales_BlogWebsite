@@ -12,7 +12,7 @@ export const DummyPosts = [
   {
     id: 1,
     thumbnail: Thumbnail1,
-    category: "education",
+    category: "Education",
     title: "This is title of 1st blog",
     desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit, veniam nulla iste labore aut cumque quos saepe in consequuntur obcaecati. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit, veniam nulla iste labore aut cumque quos saepe in consequuntur obcaecati.",
     authorID: 1,
@@ -20,7 +20,7 @@ export const DummyPosts = [
   {
     id: 2,
     thumbnail: Thumbnail2,
-    category: "technology",
+    category: "Technology",
     title: "This is title of 2nd blog",
     desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit, veniam nulla iste labore aut cumque quos saepe in consequuntur obcaecati. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit, veniam nulla iste labore aut cumque quos saepe in consequuntur obcaecati.",
     authorID: 1,
@@ -28,7 +28,7 @@ export const DummyPosts = [
   {
     id: 3,
     thumbnail: Thumbnail3,
-    category: "weather",
+    category: "Science",
     title: "This is title of 3rd blog",
     desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit, veniam nulla iste labore aut cumque quos saepe in consequuntur obcaecati. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit, veniam nulla iste labore aut cumque quos saepe in consequuntur obcaecati.",
     authorID: 2,
@@ -36,7 +36,7 @@ export const DummyPosts = [
   {
     id: 4,
     thumbnail: Thumbnail4,
-    category: "science",
+    category: "Science",
     title: "This is title of 4th blog",
     desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit, veniam nulla iste labore aut cumque quos saepe in consequuntur obcaecati. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit, veniam nulla iste labore aut cumque quos saepe in consequuntur obcaecati.",
     authorID: 3,

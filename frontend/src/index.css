@@ -322,6 +322,7 @@ form > .buttonWrapper {
   padding: 10px;
   border-radius: var(--radius-2);
   box-shadow: 1px 1px 10px var(--color-primary);
+  overflow-y: auto;
 }
 
 .fields_wrapper {

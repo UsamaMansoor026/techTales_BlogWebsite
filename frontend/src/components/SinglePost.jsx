@@ -33,17 +33,17 @@ const SinglePost = ({ post }) => {
   return (
     <article
       key={post.id}
-      className="singlePost"
+      className="singlePost shadow-lg"
       onClick={() => navigate(`/posts/${post.id}`)}
     >
       <div className="post_thumbnail">
         <img src={post.thumbnail} alt={post.title} />
       </div>
-      <div className="my-3">
+      <div className="my-3 px-3">
         <h3>{postTtile}</h3>
         <p>{shortDescription}</p>
       </div>
-      <div className="flex justify-between items-center my-3 px-1">
+      <div className="flex justify-between items-center my-3 pl-1 pr-4">
         {/* Author Detail */}
         <div
           onClick={(e) => gotoAuthorPage(e, authorDetail?.id)}
@@ -56,7 +56,7 @@ const SinglePost = ({ post }) => {
           />
           <p>{authorDetail?.name}</p>
         </div>
-        <p className="uppercase cursor-pointer hover:underline duration-150">
+        <p className="uppercase cursor-pointer text-xs hover:underline duration-150">
           {post.category}
         </p>
       </div>

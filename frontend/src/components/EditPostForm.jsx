@@ -1,39 +1,26 @@
 import React, { useState } from "react";
 import defaultImg from "../assets/defaultImg.jpg";
 
-const CreatePost = () => {
-  const [postImg, setPostImg] = useState();
-  const [postData, setPostData] = useState({
-    title: "",
-    category: "",
-    description: "",
-  });
-  const handleImg = (e) => {
-    console.log(e.target.files[0]);
-    setPostImg(e.target.files[0]);
-  };
+const EditPostForm = ({ postData, setShowEditForm }) => {
+  const [newData, setNewData] = useState(postData);
 
   const handleOnChange = (e) => {
-    const { id, value } = e.target;
-    setPostData((prevData) => ({ ...prevData, [id]: value }));
+    setNewData((prev) => ({ ...prev, [e.target.id]: e.target.value }));
   };
 
-  const handlePostCreate = (e) => {
-    e.preventDefault();
-    console.log("PostData: ", postData);
-    console.log("Post image: ", URL.createObjectURL(postImg));
-
-    setPostData({
-      title: "",
-      category: "",
-      description: "",
-    });
-    setPostImg(null);
+  const handleImgChange = (e) => {
+    setNewData((prev) => ({ ...prev, thumbnail: e.target.files[0] }));
   };
 
   return (
-    <section className="container">
-      <form className="create-post-form" onSubmit={handlePostCreate}>
+    <section className="container mb-16 border border-black">
+      <form className="create-post-form bg-white overflow-y-auto">
+        <p
+          className="flex justify-end cursor-pointer text-2xl mr-3"
+          onClick={() => setShowEditForm(false)}
+        >
+          X
+        </p>
         <div className="fields_wrapper">
           <div className="title_category_wrapper">
             {/* Post Title Field */}
@@ -45,7 +32,7 @@ const CreatePost = () => {
                 id="title"
                 placeholder="Post Title..."
                 className="input"
-                value={postData.title}
+                value={newData?.title}
                 onChange={handleOnChange}
               />
             </div>
@@ -57,8 +44,8 @@ const CreatePost = () => {
                 name="category"
                 id="category"
                 className="input"
+                value={newData?.category}
                 onChange={handleOnChange}
-                value={postData.category}
               >
                 <option value="">Select</option>
                 <option value="Technology">Technology</option>
@@ -78,14 +65,18 @@ const CreatePost = () => {
               <span>Post Image</span>
               <img
                 className="image_label"
-                src={postImg ? URL.createObjectURL(postImg) : defaultImg}
+                src={
+                  newData?.thumbnail instanceof File
+                    ? URL.createObjectURL(newData.thumbnail)
+                    : newData?.thumbnail || defaultImg
+                }
               />
             </label>
             <input
               type="file"
               name="post-image"
               id="post-image"
-              onChange={handleImg}
+              onChange={handleImgChange}
               style={{ display: "none" }}
             />
           </div>
@@ -99,15 +90,15 @@ const CreatePost = () => {
             id="desc"
             placeholder="Post Description..."
             className="input"
+            value={newData?.desc}
             onChange={handleOnChange}
-            value={postData.desc}
           ></textarea>
         </div>
 
         {/* Create Post Button */}
         <div style={{ display: "flex", justifyContent: "flex-end" }}>
           <button className="btn primary" type="submit">
-            Create Post
+            Update Post
           </button>
         </div>
       </form>
@@ -115,4 +106,4 @@ const CreatePost = () => {
   );
 };
 
-export default CreatePost;
+export default EditPostForm;
